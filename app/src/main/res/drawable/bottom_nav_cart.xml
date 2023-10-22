@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:height="28.314dp" android:width="32.742dp" android:viewportWidth="32.742" android:viewportHeight="28.314">
+    <group>
+        <clip-path android:pathData="M0,0H32.742V28.314H0z"/>
+        <path android:fillColor="@color/bottom_nav_icon_default" android:pathData="M12.107,22.48a2.917,2.917 0,1 0,2.917 2.92,2.921 2.921,0 0,0 -2.917,-2.917m0,3.834a0.917,0.917 0,1 1,0.917 -0.917,0.918 0.918,0 0,1 -0.917,0.917"/>
+        <path android:fillColor="@color/bottom_nav_icon_default" android:pathData="M23.83,22.48a2.917,2.917 0,1 0,2.917 2.92,2.921 2.921,0 0,0 -2.917,-2.92m0,3.834a0.917,0.917 0,1 1,0.917 -0.917,0.918 0.918,0 0,1 -0.917,0.917"/>
+        <path android:fillColor="@color/bottom_nav_icon_default" android:pathData="M32.01,4.288a3.817,3.817 0,0 0,-3.233 -1.838H12.109a1,1 0,1 0,0 2h16.668a1.854,1.854 0,0 1,1.55 0.919,2.728 2.728,0 0,1 0.173,2.586l-2.635,5.771a1.938,1.938 0,0 1,-1.707 1.2H8.919L6.144,0.807A1,1 0,0 0,5.162 0H1a1,1 0,0 0,0 2h3.34l3.747,19.06a1,1 0,0 0,0.982 0.807h17.745a1,1 0,0 0,0 -2H9.891l-0.578,-2.942h16.873a3.935,3.935 0,0 0,3.51 -2.4l2.621,-5.736a4.745,4.745 0,0 0,-0.307 -4.5"/>
+    </group>
+</vector>
