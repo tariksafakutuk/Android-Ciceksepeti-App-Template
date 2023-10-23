@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.ciceksepetiapp.data.entity.FlowerCategory
 import com.example.ciceksepetiapp.databinding.FragmentHomePageBinding
 import com.example.ciceksepetiapp.ui.adapter.FlowerCategoryAdapter
+import com.example.ciceksepetiapp.ui.adapter.HeaderCardAdapter
 
 class HomePageFragment : Fragment() {
     private lateinit var binding: FragmentHomePageBinding
@@ -25,6 +26,13 @@ class HomePageFragment : Fragment() {
 
         val flowerCategoryAdapter = FlowerCategoryAdapter(requireContext(), flowerCategoryList)
         binding.rvFlowerCategory.adapter = flowerCategoryAdapter
+
+        binding.rvHeaderCard.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL)
+
+        val headerCardList = createHeaderCardList()
+
+        val headerCardAdapter = HeaderCardAdapter(requireContext(), headerCardList)
+        binding.rvHeaderCard.adapter = headerCardAdapter
 
         return binding.root
     }
@@ -60,5 +68,13 @@ class HomePageFragment : Fragment() {
         flowerCategoryList.add(fc13)
 
         return flowerCategoryList
+    }
+
+    private fun createHeaderCardList(): ArrayList<String> {
+        val headerCardList = ArrayList<String>()
+        headerCardList.add("header_card_image_1")
+        headerCardList.add("header_card_image_2")
+
+        return headerCardList
     }
 }
