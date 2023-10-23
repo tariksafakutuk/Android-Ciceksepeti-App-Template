@@ -10,6 +10,7 @@ import com.example.ciceksepetiapp.data.entity.FlowerCategory
 import com.example.ciceksepetiapp.databinding.FragmentHomePageBinding
 import com.example.ciceksepetiapp.ui.adapter.FlowerCategoryAdapter
 import com.example.ciceksepetiapp.ui.adapter.HeaderCardAdapter
+import com.example.ciceksepetiapp.ui.adapter.ImageCardAdapter
 
 class HomePageFragment : Fragment() {
     private lateinit var binding: FragmentHomePageBinding
@@ -33,6 +34,13 @@ class HomePageFragment : Fragment() {
 
         val headerCardAdapter = HeaderCardAdapter(requireContext(), headerCardList)
         binding.rvHeaderCard.adapter = headerCardAdapter
+
+        binding.rvImageCard.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+
+        val imageCardList = createImageCardList()
+
+        val imageCardAdapter = ImageCardAdapter(requireContext(), imageCardList)
+        binding.rvImageCard.adapter = imageCardAdapter
 
         return binding.root
     }
@@ -76,5 +84,30 @@ class HomePageFragment : Fragment() {
         headerCardList.add("header_card_image_2")
 
         return headerCardList
+    }
+
+    private fun createImageCardList() : ArrayList<String> {
+        val imageCardList = ArrayList<String>()
+        imageCardList.add("image_card_1")
+        imageCardList.add("image_card_2")
+        imageCardList.add("image_card_3")
+        imageCardList.add("image_card_4")
+        imageCardList.add("image_card_5")
+        imageCardList.add("image_card_6")
+        imageCardList.add("image_card_7")
+        imageCardList.add("image_card_8")
+        imageCardList.add("image_card_9")
+        imageCardList.add("image_card_10")
+        imageCardList.add("image_card_11")
+        imageCardList.add("image_card_12")
+        imageCardList.add("image_card_13")
+        imageCardList.add("image_card_14")
+        imageCardList.add("image_card_15")
+        imageCardList.add("image_card_16")
+        imageCardList.add("image_card_17")
+        imageCardList.add("image_card_18")
+        imageCardList.add("image_card_19")
+
+        return imageCardList
     }
 }
