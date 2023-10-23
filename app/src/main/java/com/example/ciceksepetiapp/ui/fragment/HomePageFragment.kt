@@ -5,56 +5,60 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.ciceksepetiapp.R
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.ciceksepetiapp.data.entity.FlowerCategory
+import com.example.ciceksepetiapp.databinding.FragmentHomePageBinding
+import com.example.ciceksepetiapp.ui.adapter.FlowerCategoryAdapter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomePageFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomePageFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentHomePageBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_page, container, false)
+    ): View {
+        binding = FragmentHomePageBinding.inflate(inflater, container, false)
+
+        binding.rvFlowerCategory.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL)
+
+        val flowerCategoryList = createFlowerCategoryList()
+
+        val flowerCategoryAdapter = FlowerCategoryAdapter(requireContext(), flowerCategoryList)
+        binding.rvFlowerCategory.adapter = flowerCategoryAdapter
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomePageFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomePageFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun createFlowerCategoryList() : ArrayList<FlowerCategory> {
+        val flowerCategoryList = ArrayList<FlowerCategory>()
+        val fc1 = FlowerCategory("flower_category_1", "Doğum Günü Çiçekleri")
+        val fc2 = FlowerCategory("flower_category_2", "Yıldönümü Çiçekleri")
+        val fc3 = FlowerCategory("flower_category_3", "Aynı Gün Çiçek")
+        val fc4 = FlowerCategory("flower_category_4", "Leziz Çikolatalar")
+        val fc5 = FlowerCategory("flower_category_5", "İçimden Geldi")
+        val fc6 = FlowerCategory("flower_category_6", "Güller")
+        val fc7 = FlowerCategory("flower_category_7", "Özür Çiçekleri")
+        val fc8 = FlowerCategory("flower_category_8", "Yeni Bebek Çiçekleri")
+        val fc9 = FlowerCategory("flower_category_9", "Lotuslu Lezzetler")
+        val fc10 = FlowerCategory("flower_category_10", "Çiçek & Hediyeler")
+        val fc11 = FlowerCategory("flower_category_11", "Mevsim Çiçekleri")
+        val fc12 = FlowerCategory("flower_category_12", "Lavanta")
+        val fc13 = FlowerCategory("flower_category_13", "Yenilebilir Çiçek")
+
+        flowerCategoryList.add(fc1)
+        flowerCategoryList.add(fc2)
+        flowerCategoryList.add(fc3)
+        flowerCategoryList.add(fc4)
+        flowerCategoryList.add(fc5)
+        flowerCategoryList.add(fc6)
+        flowerCategoryList.add(fc7)
+        flowerCategoryList.add(fc8)
+        flowerCategoryList.add(fc9)
+        flowerCategoryList.add(fc10)
+        flowerCategoryList.add(fc11)
+        flowerCategoryList.add(fc12)
+        flowerCategoryList.add(fc13)
+
+        return flowerCategoryList
     }
 }
