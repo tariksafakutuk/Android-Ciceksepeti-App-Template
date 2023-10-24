@@ -3,7 +3,9 @@ package com.example.ciceksepetiapp.ui.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ciceksepetiapp.R
 import com.example.ciceksepetiapp.databinding.HeaderCardBinding
 
 class HeaderCardAdapter(
@@ -26,6 +28,10 @@ class HeaderCardAdapter(
         binding.ivHeader.setImageResource(
             mContext.resources.getIdentifier(headerCard, "drawable", mContext.packageName)
         )
+
+        binding.ivHeader.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_homePageFragment_to_productListFragment)
+        }
 
         binding.tvPageNumber.text = "${position + 1}/2"
     }

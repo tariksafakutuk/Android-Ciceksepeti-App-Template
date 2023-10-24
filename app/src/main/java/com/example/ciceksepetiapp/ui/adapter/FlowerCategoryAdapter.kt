@@ -3,7 +3,9 @@ package com.example.ciceksepetiapp.ui.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ciceksepetiapp.R
 import com.example.ciceksepetiapp.data.entity.FlowerCategory
 import com.example.ciceksepetiapp.databinding.FlowerCategoryCardBinding
 
@@ -27,6 +29,10 @@ class FlowerCategoryAdapter(
         binding.ivFlowerCategory.setImageResource(
             mContext.resources.getIdentifier(flowerCategory.imageName, "drawable", mContext.packageName)
         )
+
+        binding.ivFlowerCategory.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_homePageFragment_to_productListFragment)
+        }
 
         binding.tvFlowerCategory.text = flowerCategory.categoryName
     }

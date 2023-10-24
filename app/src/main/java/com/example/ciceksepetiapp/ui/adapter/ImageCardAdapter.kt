@@ -1,12 +1,13 @@
 package com.example.ciceksepetiapp.ui.adapter
 
 import android.content.Context
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.ciceksepetiapp.R
 import com.example.ciceksepetiapp.data.entity.FlowerCategory
 import com.example.ciceksepetiapp.databinding.ImageCardBinding
 
@@ -25,30 +26,44 @@ class ImageCardAdapter(private var mContext: Context, private var imageCardList:
         val imageCard = imageCardList.get(position)
         val binding = holder.design
 
-        if (position == 0) {
-            binding.rvFlowerCategory.visibility = View.VISIBLE
-            binding.rvFlowerCategory.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL)
+        when (position) {
+            0 -> {
+                binding.rvFlowerCategory.visibility = View.VISIBLE
+                binding.rvFlowerCategory.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL)
 
-            val flowerCategoryList = createFlowerCategoryList()
+                val flowerCategoryList = createFlowerCategoryList()
 
-            val flowerCategoryAdapter = FlowerCategoryAdapter(mContext, flowerCategoryList)
-            binding.rvFlowerCategory.adapter = flowerCategoryAdapter
+                val flowerCategoryAdapter = FlowerCategoryAdapter(mContext, flowerCategoryList)
+                binding.rvFlowerCategory.adapter = flowerCategoryAdapter
 
-            binding.rvImageCard.visibility = View.VISIBLE
-            binding.rvImageCard.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL)
+                binding.rvImageCard.visibility = View.VISIBLE
+                binding.rvImageCard.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL)
 
-            val headerCardList = createHeaderCardList()
+                val headerCardList = createHeaderCardList()
 
-            val headerCardAdapter = HeaderCardAdapter(mContext, headerCardList)
-            binding.rvImageCard.adapter = headerCardAdapter
-        } else {
-            binding.rvFlowerCategory.visibility = View.GONE
-            binding.rvImageCard.visibility = View.GONE
+                val headerCardAdapter = HeaderCardAdapter(mContext, headerCardList)
+                binding.rvImageCard.adapter = headerCardAdapter
+            }
+            imageCardList.size - 1 -> {
+                binding.buttonCategory.visibility = View.VISIBLE
+                binding.buttonCategory.setOnClickListener {
+                    Navigation.findNavController(it).navigate(R.id.action_homePageFragment_to_categoriesFragment)
+                }
+            }
+            else -> {
+                binding.rvFlowerCategory.visibility = View.GONE
+                binding.rvImageCard.visibility = View.GONE
+                binding.buttonCategory.visibility = View.GONE
+            }
         }
 
         binding.ivCard.setImageResource(
             mContext.resources.getIdentifier(imageCard, "drawable", mContext.packageName)
         )
+
+        binding.ivCard.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_homePageFragment_to_productListFragment)
+        }
     }
 
     override fun getItemCount(): Int {
