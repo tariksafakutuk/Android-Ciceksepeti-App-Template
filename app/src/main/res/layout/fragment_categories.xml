@@ -63,4 +63,21 @@
                 app:srcCompat="@drawable/header_logo_2" />
         </LinearLayout>
     </LinearLayout>
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/search_view_rounded_edge"
+        android:iconifiedByDefault="false"
+        android:paddingStart="-12dp"
+        android:queryBackground="@null"
+        android:queryHint="Marka, ürün veya kategori ara"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:ignore="RtlSymmetry" />
 </androidx.constraintlayout.widget.ConstraintLayout>
