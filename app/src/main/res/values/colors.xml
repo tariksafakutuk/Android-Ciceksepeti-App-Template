@@ -7,4 +7,7 @@
     <color name="header_background">#e1f8e7</color>
     <color name="search_view_edge">#555</color>
     <color name="button_category">#ffb400</color>
+    <color name="category_item_default">#a0a0a0</color>
+    <color name="category_item_selected">#185ca6</color>
+    <color name="category_background">#e4e4e5</color>
 </resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingTop="8dp"
+    android:paddingBottom="5dp">
+
+    <ImageView
+        android:id="@+id/iv_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:tint="@color/category_item_selected"
+        tools:srcCompat="@drawable/category_flower" />
+
+    <TextView
+        android:id="@+id/tv_category"
+        android:layout_width="85dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:maxLines="2"
+        android:minLines="1"
+        android:textAlignment="center"
+        android:textColor="@color/category_item_selected"
+        android:textSize="12sp"
+        tools:text="Çiçek" />
+</LinearLayout>
