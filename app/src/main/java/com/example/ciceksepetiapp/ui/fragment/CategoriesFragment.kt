@@ -1,60 +1,65 @@
 package com.example.ciceksepetiapp.ui.fragment
 
+import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.ciceksepetiapp.R
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.ciceksepetiapp.data.entity.FlowerCategory
+import com.example.ciceksepetiapp.databinding.FragmentCategoriesBinding
+import com.example.ciceksepetiapp.ui.adapter.CategoriesAdapter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CategoriesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CategoriesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var binding: FragmentCategoriesBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_categories, container, false)
+    ): View {
+        binding = FragmentCategoriesBinding.inflate(inflater, container, false)
+
+        binding.rvCategories.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+
+        val categoryList = createCategoryCardList()
+        val categoriesAdapter = CategoriesAdapter(requireContext(), categoryList, binding.tvTitle, binding.listViewCategories)
+
+        binding.rvCategories.adapter = categoriesAdapter
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CategoriesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CategoriesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun createCategoryCardList(): ArrayList<FlowerCategory> {
+        val categoryList = ArrayList<FlowerCategory>()
+        val c1 = FlowerCategory("category_flower", "Çiçek")
+        val c2 = FlowerCategory("category_bunnyfood", "Yenilebilir Çiçek")
+        val c3 = FlowerCategory("category_chocolate", "Çikolata")
+        val c4 = FlowerCategory("category_birthday", "Doğum Günü")
+        val c5 = FlowerCategory("category_purpose", "Gönderim Amacı")
+        val c6 = FlowerCategory("category_orchid", "Orkide / Saksı Çiçekleri")
+        val c7 = FlowerCategory("category_viabonte", "Viabonte Taze Çiçekler")
+        val c8 = FlowerCategory("category_gourmet", "Gurme Lezzetler")
+        val c9 = FlowerCategory("category_gift", "Hediye")
+        val c10 = FlowerCategory("category_personal", "Kişiye Özel")
+        val c11 = FlowerCategory("category_gift_sets", "Hediye Setleri")
+
+        categoryList.add(c1)
+        categoryList.add(c2)
+        categoryList.add(c3)
+        categoryList.add(c4)
+        categoryList.add(c5)
+        categoryList.add(c6)
+        categoryList.add(c7)
+        categoryList.add(c8)
+        categoryList.add(c9)
+        categoryList.add(c10)
+        categoryList.add(c11)
+
+        return categoryList
     }
 }
