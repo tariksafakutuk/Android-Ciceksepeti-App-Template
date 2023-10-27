@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.ProductListFragment" >
+    tools:context=".ui.fragment.ProductListFragment">
 
     <SearchView
         android:id="@+id/searchView"
@@ -34,6 +34,7 @@
         app:layout_constraintTop_toTopOf="@+id/searchView" />
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -50,7 +51,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@tools:sample/avatars"
             app:srcCompat="@drawable/location_icon" />
 
         <TextView
@@ -68,7 +68,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@tools:sample/avatars"
             app:srcCompat="@drawable/arrow_right" />
     </LinearLayout>
 
@@ -93,7 +92,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@tools:sample/avatars"
             app:srcCompat="@drawable/filter_icon" />
 
         <TextView
@@ -111,7 +109,6 @@
             android:layout_height="30dp"
             android:layout_marginStart="4dp"
             android:layout_weight="1"
-            android:src="@tools:sample/avatars"
             app:srcCompat="@drawable/vertical_line" />
 
         <ImageView
@@ -120,7 +117,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:src="@tools:sample/avatars"
             app:srcCompat="@drawable/sort_icon" />
 
         <TextView
@@ -132,5 +128,17 @@
             android:text="Sırala"
             android:textSize="10sp" />
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_product"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
