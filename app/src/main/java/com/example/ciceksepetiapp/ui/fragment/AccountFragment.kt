@@ -5,56 +5,54 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.ciceksepetiapp.R
+import com.example.ciceksepetiapp.data.entity.AccountCard
+import com.example.ciceksepetiapp.databinding.FragmentAccountBinding
+import com.example.ciceksepetiapp.ui.adapter.AccountCardAdapter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AccountFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AccountFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentAccountBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false)
+        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.white)
+
+        binding = FragmentAccountBinding.inflate(inflater, container, false)
+
+        binding.rvAccount.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+
+        val accountCardList = createAccountCardList()
+        val accountCardAdapter = AccountCardAdapter(requireContext(), accountCardList)
+
+        binding.rvAccount.adapter = accountCardAdapter
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AccountFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AccountFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun createAccountCardList(): ArrayList<AccountCard>{
+        val accountCardList = ArrayList<AccountCard>()
+        val ac1 = AccountCard("account_login", "Üye Girişi")
+        val ac2 = AccountCard("account_register", "Üye Ol")
+        val ac3 = AccountCard("account_order_track", "Sipariş Takibi")
+        val ac4 = AccountCard("account_notification", "Bildirimler")
+        val ac5 = AccountCard("account_live_chat", "Canlı Destek")
+        val ac6 = AccountCard("account_help", "Yardım")
+        val ac7 = AccountCard("account_video_card", "VideoCard")
+        val ac8 = AccountCard("account_campaign", "Kampanyalar")
+
+        accountCardList.add(ac1)
+        accountCardList.add(ac2)
+        accountCardList.add(ac3)
+        accountCardList.add(ac4)
+        accountCardList.add(ac5)
+        accountCardList.add(ac6)
+        accountCardList.add(ac7)
+        accountCardList.add(ac8)
+
+        return accountCardList
     }
 }
