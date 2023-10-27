@@ -5,11 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.ciceksepetiapp.data.entity.FlowerCategory
+import com.example.ciceksepetiapp.R
 import com.example.ciceksepetiapp.databinding.FragmentHomePageBinding
-import com.example.ciceksepetiapp.ui.adapter.FlowerCategoryAdapter
-import com.example.ciceksepetiapp.ui.adapter.HeaderCardAdapter
 import com.example.ciceksepetiapp.ui.adapter.ImageCardAdapter
 
 class HomePageFragment : Fragment() {
@@ -19,6 +18,8 @@ class HomePageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.header_background)
+
         binding = FragmentHomePageBinding.inflate(inflater, container, false)
 
         binding.rvImageCard.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)

@@ -1,15 +1,13 @@
 package com.example.ciceksepetiapp.ui.fragment
 
-import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.ciceksepetiapp.R
 import com.example.ciceksepetiapp.data.entity.FlowerCategory
 import com.example.ciceksepetiapp.databinding.FragmentCategoriesBinding
 import com.example.ciceksepetiapp.ui.adapter.CategoriesAdapter
@@ -17,11 +15,12 @@ import com.example.ciceksepetiapp.ui.adapter.CategoriesAdapter
 class CategoriesFragment : Fragment() {
     private lateinit var binding: FragmentCategoriesBinding
 
-    @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.header_background)
+
         binding = FragmentCategoriesBinding.inflate(inflater, container, false)
 
         binding.rvCategories.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)

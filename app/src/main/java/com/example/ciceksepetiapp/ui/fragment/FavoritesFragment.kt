@@ -16,9 +16,4 @@ class FavoritesFragment : Fragment() {
         requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.white)
         return inflater.inflate(R.layout.fragment_favorites, container, false)
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.header_background)
-    }
 }
