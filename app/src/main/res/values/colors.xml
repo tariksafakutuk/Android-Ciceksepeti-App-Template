@@ -10,4 +10,7 @@
     <color name="category_item_default">#a0a0a0</color>
     <color name="category_item_selected">#185ca6</color>
     <color name="category_background">#e4e4e5</color>
+    <color name="circle_bacground">#e2f7e1</color>
+    <color name="circle_item">#ff51b549</color>
+    <color name="favorites_button">#3ca735</color>
 </resources>
